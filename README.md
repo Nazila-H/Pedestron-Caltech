@@ -73,7 +73,7 @@ datasets/Caltech
 |__train.json  
 
 ```
-
+`pretrained_models` folder contains checkpoints for starting the training e.g. `epoch_5.pth.stu` should be placed near the other folders of the repository.
 
 ### Citation
 [CVPR2021](https://openaccess.thecvf.com/content/CVPR2021/papers/Hasan_Generalizable_Pedestrian_Detection_The_Elephant_in_the_Room_CVPR_2021_paper.pdf)
