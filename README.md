@@ -69,27 +69,30 @@ Convert the result to txt by:
 ```shell
 python tools/caltech/convert_json_to_txt.py
 ```
-The results will be saved at `tools/caltech/eval_caltech/Predestron_Results/result_caltech
-                                                                                         |__set06
-                                                                                            |__V000.txt 
-                                                                                            |__... 
-                                                                                            |__V018.txt
-                                                                                         |__set07
-                                                                                            |__V000.txt
-                                                                                            |__... 
-                                                                                            |__V011.txt
-                                                                                         |__set08
-                                                                                            |__V000.txt 
-                                                                                            |__... 
-                                                                                            |__V010.txt
-                                                                                         |__set09
-                                                                                            |__V000.txt
-                                                                                            |__... 
-                                                                                            |__V011.txt
-                                                                                         |__set10
-                                                                                            |__V000.txt
-                                                                                            |__... 
-                                                                                            |__V011.txt 
+The results will be saved at 
+```shell
+tools/caltech/eval_caltech/Predestron_Results/result_caltech
+|__set06
+    |__V000.txt 
+    |__... 
+    |__V018.txt
+|__set07
+    |__V000.txt
+    |__... 
+    |__V011.txt
+|__set08
+    |__V000.txt 
+    |__... 
+    |__V010.txt
+|__set09
+    |__V000.txt
+    |__... 
+    |__V011.txt
+|__set10
+    |__V000.txt
+    |__... 
+    |__V011.txt 
+```
 
 Chainging the name of `result_caltech` folder to `epoch_14`<br/>
 cd Pedestron-Caltech/tools/caltech/eval_caltech<br/>
@@ -115,7 +118,6 @@ datasets/Caltech
    |__set05_V012_I01706.jpg   
 |__test.json
 |__train.json  
-
 ```
 
 
