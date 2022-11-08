@@ -44,14 +44,58 @@ python tools/demo.py configs/elephant/cityperson/cascade_hrnet.py pretrained_mod
 ```shell
 python tools/train.py ${CONFIG_FILE}
 ```
-For instance training on the Caltech dataset
+For instance, training on the Caltech dataset:
 
 ```shell
 python tools/train.py configs/elephant/caltech/cascade_hrnet.py
 ```
-The results will be saved in `work_dirs` folder.
+The results will be saved in `work_dirs` folder (with epoch_number.pth.stu format)
 
-### Testing
+### Testing on the Caltech Pedestrian Dataset
+
+1) Using the downloaded weight `epoch_14.pth.stu` (Cascade Mask R-CNN) as a starting checkpoint and making the prediction on the Caltech testset:
+```shell
+python tools/test_caltech.py configs/elephant/caltech/cascade_hrnet.py pretrained_models/epoch_ 14 15 --out result_caltech.json [--mean_teacher]
+```
+
+2) Using the result of training on the Caltech dataset (they are saving on `work_dirs` folder automatically) as a checkpoint (putting them on `pretrained_models` folder)  and making the prediction on the Caltech testset:
+```shell
+python tools/test_caltech.py configs/elephant/caltech/cascade_hrnet.py pretrained_models/epoch_ 20 21 --out result_caltech.json [--mean_teacher]
+```
+
+The result will be saved as `result_caltech.json14.json` (from 1).
+
+Convert the result to txt by: 
+```shell
+python tools/caltech/convert_json_to_txt.py
+```
+The results will be saved at `tools/caltech/eval_caltech/Predestron_Results/result_caltech
+                                                                                         |__set06
+                                                                                            |__V000.txt 
+                                                                                            |__... 
+                                                                                            |__V018.txt
+                                                                                         |__set07
+                                                                                            |__V000.txt
+                                                                                            |__... 
+                                                                                            |__V011.txt
+                                                                                         |__set08
+                                                                                            |__V000.txt 
+                                                                                            |__... 
+                                                                                            |__V010.txt
+                                                                                         |__set09
+                                                                                            |__V000.txt
+                                                                                            |__... 
+                                                                                            |__V011.txt
+                                                                                         |__set10
+                                                                                            |__V000.txt
+                                                                                            |__... 
+                                                                                            |__V011.txt 
+
+Chainging the name of `result_caltech` folder to `epoch_14`<br/>
+cd Pedestron-Caltech/tools/caltech/eval_caltech<br/>
+matlab -nodisplay -nosplash -nodesktop -r "run('dbEval.m');exit;"<br/>
+
+The result will be saved in `eval_caltech/ResultEval/eval_newResonable.txt` for the value of MR.
 
 
 
@@ -73,7 +117,7 @@ datasets/Caltech
 |__train.json  
 
 ```
-`pretrained_models` folder contains checkpoints for starting the training e.g. `epoch_5.pth.stu` should be placed near the other folders of the repository.
+
 
 ### Citation
 [CVPR2021](https://openaccess.thecvf.com/content/CVPR2021/papers/Hasan_Generalizable_Pedestrian_Detection_The_Elephant_in_the_Room_CVPR_2021_paper.pdf)
